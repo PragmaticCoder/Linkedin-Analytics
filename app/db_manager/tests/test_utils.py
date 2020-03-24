@@ -28,18 +28,5 @@ class DatabaseUploadTests(TestCase):
     def test_function_deletes_previous_companies(self):
         """Test that db is cleaned before the upload"""
         database_upload()
-        self.assertEqual(len(Company.objects.filter(name="Test")), 0)
-        self.assertEqual(len(Company.objects.filter(name="Undisclosed")), 0)
-
-
-
-
-
-
-
-
-
-
-
-
-
+        self.assertEqual(Company.objects.filter(name="Test").count(), 0)
+        self.assertEqual(Company.objects.filter(name="Undisclosed").count(), 0)
